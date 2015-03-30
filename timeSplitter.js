@@ -23,14 +23,16 @@ module.exports = function (H, moment, config, log, path, fs) {
                 '.' + config.extension
             );
             fs.stat(filePath, function (err, stats) {
-                if (stats.size > 0) {
-                    fs.rename(filePath, newPath, function () {
-                        log('File finalized:', newPath);
-                    });
-                } else {
-                    fs.unlink(filePath, function () {
-                        log('File was empty, deleted', filePath);
-                    });
+                if (stats) {
+                    if (stats.size > 0) {
+                        fs.rename(filePath, newPath, function () {
+                            log('File finalized:', newPath);
+                        });
+                    } else {
+                        fs.unlink(filePath, function () {
+                            log('File was empty, deleted', filePath);
+                        });
+                    }
                 }
             });
 
