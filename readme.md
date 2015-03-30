@@ -8,6 +8,9 @@ Quick start:
     npm install
     node index
 
+    #if script sometimes exits but can last at least an hour, please use https://github.com/foreverjs/forever
+    #or similar tool to keep it running. There is no point to debug it in that case.
+
 Features:
 
     [X] Check
