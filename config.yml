@@ -1,0 +1,35 @@
+#This is config file. Please be careful with spaces, :, tabs and newlines.
+
+default:
+    #absolute path where to write streams
+    folder: /Users/y/github/camGrab/video
+
+    #extension for video files
+    extension: mjpeg
+
+    #how many seconds wait before trying to reconnect to stream if connection is lost
+    reconnect: 5
+
+    #stall detection, if no data received on stream for that many seconds, try to reconnect
+    stallTimeOut: 10
+
+    #how long (in minutes) are files with video streams
+    timeSpan: 5
+
+    #how often each stream should report it's stats to console (in seconds), 0 to disable reports
+    #some basic reporting will be visible anyway
+    reportInterval: 3
+
+    #camera streams in MJPEG format
+    cams:
+      - http://74.95.202.145/anony/mjpg.cgi?1025682278
+      - http://142.105.227.112/anony/mjpg.cgi?361642832
+      - http://74.95.202.145/anony/mjpg.cgi?2119556695
+      - http://142.105.227.112/anony/mjpg.cgi?477088861
+      - http://213.141.137.13/anony/mjpg.cgi?1491899040
+      - http://82.232.186.139/anony/mjpg.cgi?863207936
+      - http://82.241.54.29/anony/mjpg.cgi?834215593
+      - http://82.127.149.94/anony/mjpg.cgi?1597116236
+      - http://62.117.66.226:5154/axis-cgi/mjpg/video.cgi?2126624210
+      - http://82.127.117.79/anony/mjpg.cgi?20613737
+      - http://178.61.31.7/anony/mjpg.cgi?868298992
