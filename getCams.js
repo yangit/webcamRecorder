@@ -2,6 +2,10 @@
 module.exports = function (config, path, fs, log, sanitize) {
     var videoFolder = config.folder;
     log('Writing to:', videoFolder);
+    if (!fs.existsSync(videoFolder)) {
+        fs.mkdirSync(videoFolder);
+    }
+
     return config.cams
         .map(function (url) { //add folder property to cam object
             return {

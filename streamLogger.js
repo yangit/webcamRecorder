@@ -46,7 +46,7 @@ module.exports = function (config, MjpegConsumer, numeral, moment, H, log) {
 
         stream.on('end', function () {
             if (intervals.length) {
-                log('Rmoving logger for dead connection from memory');
+                log('Removing logger for dead connection from memory');
                 intervals.forEach(clearInterval);
             }
         });

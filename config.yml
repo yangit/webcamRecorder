@@ -2,7 +2,7 @@
 
 default:
     #absolute path where to write streams
-    folder: /Users/y/github/camGrab/video
+    folder: /Users/y/github/camGrab2/video
 
     #extension for video files
     extension: mjpeg

@@ -48,8 +48,6 @@ H(cams).each(function (cam) {
             });
     };
     connect();
-
-
 });
 
 

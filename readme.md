@@ -2,6 +2,7 @@ Quick start:
 
     Requirements:
         node.js and git installed in the system
+        Check config settings in config.yml
 
 
     sudo apt-get install build-essential
