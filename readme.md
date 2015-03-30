@@ -7,9 +7,11 @@ Quick start:
     npm install
     node index
 
+Features:
+
     [X] Check
         [X] recorded mjpeg file can be played with vlc
-        [X] bitrate on average allows to write 10 streams for 10 days to single 2TB drive.
+        [X] bitrate on average 500mb for 10 cams for 10 min
     [X] settings file
     [X] create separate folder for each camera
     [X] connect to cams from settings file
