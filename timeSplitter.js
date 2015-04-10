@@ -15,22 +15,22 @@ module.exports = function (H, moment, config, log, path, fs) {
             log('Temp file created:', filePath);
         };
 
-        var end = function () {
+        var end = function (oldPath) {
             pointer.end();
             var newPath = path.normalize(
                 cam.folder + '/' +
                 startTime.format('x') + '-' + moment().format('x') +
                 '.' + config.extension
             );
-            fs.stat(filePath, function (err, stats) {
+            fs.stat(oldPath, function (err, stats) {
                 if (stats) {
                     if (stats.size > 0) {
-                        fs.rename(filePath, newPath, function () {
+                        fs.rename(oldPath, newPath, function () {
                             log('File finalized:', newPath);
                         });
                     } else {
-                        fs.unlink(filePath, function () {
-                            log('File was empty, deleted', filePath);
+                        fs.unlink(oldPath, function () {
+                            log('File was empty, deleted', oldPath);
                         });
                     }
                 }
@@ -38,11 +38,10 @@ module.exports = function (H, moment, config, log, path, fs) {
 
         };
 
-
         var stream = H()
             .map(function (image) {
                 if (moment().diff(startTime, 'minute') >= config.timeSpan) {
-                    end();
+                    end(filePath);
                     init();
                 } else {
                     pointer.write(image);
@@ -50,7 +49,7 @@ module.exports = function (H, moment, config, log, path, fs) {
             });
         stream.on('end', function () {
             log('Recovering file');
-            end();
+            end(filePath);
         });
 
         init();
